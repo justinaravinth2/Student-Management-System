@@ -36,9 +36,9 @@ public class AdminController extends BaseController {
 	@Autowired
 	AdminService adminService;
 	
-	@PutMapping("/addOrUpdateStudent")
-	public ResponseEntity<ResponseDTO> addOrUpdateStudent(@RequestBody StudentDTO studentDTO) {
-		String methodName = "addOrUpdateStudent()";
+	@PostMapping("/addStudent")
+	public ResponseEntity<ResponseDTO> addStudent(@RequestBody StudentDTO studentDTO) {
+		String methodName = "addStudent()";
 		LOGGER.debug(CommonConstant.STARTING_METHOD, methodName);
 		String errorMsg = null;
 		Map<String, Object> responseObjectsMap = new HashMap<>();
@@ -84,35 +84,9 @@ public class AdminController extends BaseController {
 
 	}
 	
-//	@GetMapping("/studentVaidation")
-//	public ResponseEntity<ResponseDTO> studentVaidation(@RequestParam String studentCode,@RequestParam String dob) {
-//		String methodName = "studentVaidation()";
-//		LOGGER.debug(CommonConstant.STARTING_METHOD, methodName);
-//		String errorMsg = null;
-//		Map<String, Object> responseObjectsMap = new HashMap<>();
-//		ResponseDTO responseDTO = null;
-//		boolean present=false;
-//		try {
-//			present = adminService.studentValidation(studentCode, dob);
-//		} catch (Exception e) {
-//			errorMsg = e.getMessage();
-//			LOGGER.error(UserConstants.ERROR_MSG_METHOD_NAME, methodName, errorMsg);
-//		}
-//		if (StringUtils.isBlank(errorMsg)) {
-//			responseObjectsMap.put(CommonConstant.STRING_MESSAGE, "Students Validation get successfully");
-//			responseObjectsMap.put("studentValidation", present);
-//			responseDTO = createServiceResponse(responseObjectsMap);
-//		} else {
-//			responseDTO = createServiceResponseError(responseObjectsMap, "Students Validation receive failed",
-//					errorMsg);
-//		}
-//		LOGGER.debug(CommonConstant.ENDING_METHOD, methodName);
-//		return ResponseEntity.ok().body(responseDTO);
-//
-//	}
 	
 	
-	@PutMapping("/addCourseDetails")
+	@PostMapping("/addCourseDetails")
 	public ResponseEntity<ResponseDTO> addCourses(@RequestBody CourseDTO courseDTO) {
 		String methodName = "addCourses()";
 		LOGGER.debug(CommonConstant.STARTING_METHOD, methodName);
